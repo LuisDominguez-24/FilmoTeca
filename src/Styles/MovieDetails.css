@@ -1,0 +1,89 @@
+.movie-details__container {
+    max-width: 1200px; /* Antes: 900px */
+    margin: 20px auto;
+    padding: 32px;
+    background: #181818;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    color: #fff;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.movie-details__back {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #ffb400;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.movie-details__back:hover {
+    color: #fff;
+}
+
+.movie-details__card {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+.movie-details__poster {
+    width: 260px;
+    height: 390px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    background: #222;
+}
+
+.movie-details__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.movie-details__title {
+    font-size: 2.2rem;
+    margin-bottom: 3px;
+    color: #2439d5;
+    font-weight: 700;
+    text-shadow: 0 5px rgba(0,0,0,0.5);
+}
+
+.movie-details__subtitle {
+    font-size: 1.1rem;
+    color: #bdbdbd;
+    margin-bottom: 3px;
+    font-style: italic;
+}
+
+.movie-details__overview {
+    margin-top: 5px;
+    font-size: 1.08rem;
+    color: #e0e0e0;
+    line-height: 1.5;
+}
+
+.movie-details__loading,
+.movie-details__error {
+    text-align: center;
+    color: #fff;
+    margin-top: 80px;
+    font-size: 1.3rem;
+}
+
+@media (max-width: 700px) {
+    .movie-details__card {
+        flex-direction: column;
+        align-items: center;
+    }
+    .movie-details__poster {
+        width: 90vw;
+        max-width: 320px;
+        height: auto;
+    }
+    .movie-details__container {
+        padding: 10px;
+    }
+}

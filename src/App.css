@@ -1,0 +1,16 @@
+.title {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  text-align: center;
+  color: #5a6ae1;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.main-container {
+  padding: 1rem;
+  max-width: 1600px; /* Antes: 1200px */
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
