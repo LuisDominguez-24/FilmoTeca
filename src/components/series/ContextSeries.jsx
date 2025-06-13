@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {get} from '../Data/httpClient.jsx';
+import {get} from '../../Data/httpClient.jsx';
 import {SeriesCard} from './SeriesCard.jsx';
 
 export function ContextSeriesCard(){
@@ -14,7 +14,6 @@ export function ContextSeriesCard(){
         <ul className='movie-list'>
             {series.map((serie)=>(
                 <SeriesCard serie={serie}/>
-
             ))}
         </ul>
     )

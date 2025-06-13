@@ -1,12 +1,12 @@
-import '../Styles/MovieCard.css';
+import '../../Styles/MovieCard.css';
 import { useNavigate } from "react-router-dom";
 
-export function MovieCard({ movie }) {
+export function SeriesCard({ serie }) {
     const navigate = useNavigate();
-    const imageUrl = "https://image.tmdb.org/t/p/w300" + movie.poster_path;
+    const imageUrl = "https://image.tmdb.org/t/p/w300" + serie.poster_path;
 
     const handleClick = () => {
-        navigate(`/movies/${movie.id}`);
+        navigate(`/series/${serie.id}`);
     };
 
     return (
@@ -16,17 +16,18 @@ export function MovieCard({ movie }) {
                     width={230} 
                     height={345} 
                     src={imageUrl || "/placeholder.svg"} 
-                    alt={movie.title} 
+                    alt={serie.name} 
+                    style={{ width: "100%", height: "270px", objectFit: "cover", display: "block" }}
                 />
             </div>
             <div className="movie-info">
-                <h3 className="movie-title">{movie.title}</h3>
-                <p className="movie-description">{movie.overview}</p>
+                <h3 className="movie-title">{serie.name}</h3>
+                <p className="movie-description">{serie.overview}</p>
                 <div className="movie-details">
                     <span className="movie-rating">
-                        <i className="rating-icon">★</i> {movie.vote_average.toFixed(1)}
+                        <i className="rating-icon">★</i> {serie.vote_average?.toFixed(1)}
                     </span>
-                    <span className="movie-date">{movie.release_date}</span>
+                    <span className="movie-date">{serie.first_air_date}</span>
                 </div>
             </div>
         </li>

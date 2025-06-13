@@ -1,16 +1,19 @@
 /* Estilos para MovieCard */
 .movie-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); /* Usa el ancho real de la card */
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   gap: 2rem;
   padding: 0;
   list-style: none;
-  justify-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  justify-items: center; 
 }
 
 .movie-card {
-  width: 100%; /* Cambiado de 230px a 100% */
-  max-width: 230px; /* Limita el ancho máximo */
+  width: 110%; /* Cambiado de 230px a 100% */
+  max-width: 200px; /* Limita el ancho máximo */
   background-color: #1a1a1a;
   border-radius: 8px;
   overflow: hidden;
@@ -21,7 +24,7 @@
 
 .movie-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 40px rgba(24, 15, 15, 0.8);
 }
 
 .movie-poster {
@@ -31,7 +34,8 @@
 
 .movie-poster img {
   width: 100%;
-  height: auto;
+  height: auto;      /* Altura fija para todos los posters */
+  object-fit: cover;  /* Recorta y centra la imagen */
   display: block;
   transition: transform 0.5s ease;
 }
@@ -89,9 +93,24 @@
 }
 
 /* Estilos responsivos */
+@media (max-width: 1400px) {
+  .movie-card {
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .movie-card {
+    max-width: 140px;
+  }
+  .content-center {
+    max-width: 98vw;
+  }
+}
+
 @media (max-width: 768px) {
   .movie-card {
-    width: 180px;
+    max-width: 180px;
   }
 
   .movie-title {
@@ -106,7 +125,7 @@
 
 @media (max-width: 480px) {
   .movie-card {
-    width: 150px;
+    max-width: 150px;
     margin: 0.5rem;
   }
 
@@ -117,4 +136,19 @@
   .movie-description {
     -webkit-line-clamp: 2;
   }
+}
+
+/* Cards de películas similares */
+.gender-movies-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  justify-items: center;
+  padding-bottom: 1rem;
+}
+
+/* Elimina o comenta los estilos especiales de .gender-movie-card */
+.gender-movie-card {
+  /* No pongas estilos aquí, deja que use los de .movie-card */
 }

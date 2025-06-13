@@ -1,22 +1,16 @@
 /* src/components/Navbar.css */
 .navbar {
     background-color: #333;
-    padding: 0.3rem 2vw;
+    padding: 0.3rem 3rem;
     border-radius: 0 0 0.5rem 0.5rem;
     border: #1b2cac 0.2rem solid;
     border-top: none;
-    width: 100vw;
-    max-width: 100vw;
+    width: 100%;
     position: fixed;
-    top: 0.2rem;
-    left: 0.3rem; 
+    top: 0;
+    left: 0;
     z-index: 1000;
     box-sizing: border-box;
-}
-
-/* Para que el contenido no quede oculto debajo del navbar */
-body {
-    padding-top: 5.5rem; /* Ajusta según la altura real de tu navbar */
 }
 
 .navbar_logo {
@@ -80,8 +74,25 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    max-width: 1800px;
-    margin: 0 auto;
+    max-width: 1800px; /* Centrado en pantallas grandes */
+    margin: 0 auto;    /* Centra el contenedor */
+    padding: 0 1rem;   /* Espaciado lateral para pantallas chicas */
+}
+
+/* Solo para pantallas menores a 1400px, usa el ancho completo */
+@media (max-width: 1400px) {
+  .navbar__container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+  .navbar_logo {
+    width: 10rem;
+    height: auto;
+  }
+  .navbar__search {
+    width: 14rem;
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 1150px) {
