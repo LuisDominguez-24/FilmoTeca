@@ -22,6 +22,10 @@ export const MovieDetails = () => {
     const [isFavorite, setIsFavorite] = useState(false);
     const [isLiked, setIsLiked] = useState(false);
     const [isDisliked, setIsDisliked] = useState(false);
+    const [favClicked, setFavClicked] = useState(false);
+    const [lateClicked, setLateClicked] = useState(false);
+    const [likeClicked, setLikeClicked] = useState(false);
+    const [dislikeClicked, setDislikeClicked] = useState(false);
 
     useEffect(() => {
         setLoading(true);
@@ -55,14 +59,25 @@ export const MovieDetails = () => {
 
     const handleFavoriteClick = () => {
         setIsFavorite(!isFavorite);
+        setFavClicked(true);
+        setTimeout(() => setFavClicked(false), 400);
+    };
+
+    const handleLateClick = () => {
+        setLateClicked(true);
+        setTimeout(() => setLateClicked(false), 400);
     };
 
     const handleLikeClick = () => {
         setIsLiked(!isLiked);
+        setLikeClicked(true);
+        setTimeout(() => setLikeClicked(false), 400);
     };
 
     const handleDislikeClick = () => {
         setIsDisliked(!isDisliked);
+        setDislikeClicked(true);
+        setTimeout(() => setDislikeClicked(false), 400);
     };
 
     return (
@@ -89,7 +104,7 @@ export const MovieDetails = () => {
                     </div>
                     <div className="movie-details__score-row">
                         <span className="movie-details__score">
-                            <i className="fa-solid fa-star" style={{color: "#ffb400"}}></i> {movie.vote_average?.toFixed(1)} / 10
+                            <i className="fa-solid fa-star" style={{color: "#ffb400"}}>★ </i> {movie.vote_average?.toFixed(1)} / 10
                         </span>
                         {trailerKey && (
                             <a
@@ -103,38 +118,56 @@ export const MovieDetails = () => {
                         )}
                     </div>
                     <div className="movie-details__actions">
-                        <button className="circle-btn" title="Favoritos" alt="Agregar a favoritos" onClick={handleFavoriteClick}>
+                        <button
+                            className={`circle-btn favorite-btn${favClicked ? " clicked" : ""}`}
+                            title="Favoritos"
+                            alt="Agregar a favoritos"
+                            onClick={handleFavoriteClick}
+                        >
                             <img 
                                 src={isFavorite ? HeartFilledIcon : HeartIcon} 
                                 alt="Favorito" 
-                                className="favorite-icon" 
+                                className="favorite-icon"
                                 style={{ width: '24px', height: '24px', transition: 'transform 0.3s' }}
                             />
                         </button>
-                        <button className="circle-btn" title="Ver más tarde" alt="Agregar a ver más tarde">
+                        <button
+                            className={`circle-btn late-btn${lateClicked ? " clicked" : ""}`}
+                            title="Ver más tarde"
+                            alt="Agregar a ver más tarde"
+                            onClick={handleLateClick}
+                        >
                             <img 
                                 src={WatchLate} 
                                 alt="Ver más tarde" 
-                                className="watch-late-icon" 
+                                className="watch-late-icon"
                                 style={{ width: '24px', height: '24px', transition: 'transform 0.3s' }}
                             />
                         </button>
-                        <button className="circle-btn" title="Me gusta" alt="Marcar como me gusta">
+                        <button
+                            className={`circle-btn like-btn${likeClicked ? " clicked" : ""}`}
+                            title="Me gusta"
+                            alt="Marcar como me gusta"
+                            onClick={handleLikeClick}
+                        >
                             <img 
                                 src={isLiked ? Like : NoLike} 
                                 alt="Me gusta" 
-                                className="like-icon" 
+                                className="like-icon"
                                 style={{ width: '24px', height: '24px', transition: 'transform 0.3s' }}
-                                onClick={handleLikeClick}
                             />
                         </button>
-                        <button className="circle-btn" title="No me gusta">
+                        <button
+                            className={`circle-btn dislike-btn${dislikeClicked ? " clicked" : ""}`}
+                            title="No me gusta"
+                            alt="Marcar como no me gusta"
+                            onClick={handleDislikeClick}
+                        >
                             <img 
                                 src={isDisliked ? DislikeTrue : DislikeFalse} 
                                 alt="No me gusta" 
-                                className="dislike-icon" 
+                                className="dislike-icon"
                                 style={{ width: '24px', height: '24px', transition: 'transform 0.3s' }}
-                                onClick={handleDislikeClick}
                             />
                         </button>
                     </div>

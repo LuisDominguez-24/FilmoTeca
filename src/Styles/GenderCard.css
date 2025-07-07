@@ -1,18 +1,16 @@
-/* --- GenderCard más larga horizontalmente y sin espacio horizontal --- */
 .gender-card {
   background: linear-gradient(120deg, #181c3a 70%, #23243a 100%);
   border-radius: 2rem;
-  overflow: hidden;
   border: 0.13em solid #23243a;
   box-shadow: 0 0.5em 2em rgba(27,44,172,0.15), 0 0.13em 0 #1b2cac inset;
   transition: transform 0.22s cubic-bezier(.4,1.6,.6,1), box-shadow 0.22s;
-  width: 42vw;           /* Más larga horizontalmente */
-  min-width: 32rem;
-  max-width: 52vw;
-  height: 28vw;
-  min-height: 22rem;
-  max-height: 42vw;
-  margin: 0;
+  width: 180px;
+  min-width: 180px;
+  max-width: 180px;
+  height: 320px;
+  min-height: 320px;
+  max-height: 320px;
+  margin-top: 0.5rem;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -20,16 +18,19 @@
 }
 
 .gender-card:focus,
-.gender-card:hover {
-  transform: translateY(-0.7em) scale(1.035);
-  box-shadow: 0 1em 2em -0.7em #1b2cac99, 0 0 0 0.13em #0f0f30ee;
+.gender-card:hover,
+.gender-card.small:hover {
+  transform: translateY(-12px) scale(1.08) !important;
+  box-shadow: 0 16px 32px 0 rgba(27,44,172,0.25), 0 2px 8px #1b2cac55 !important;
   outline: none;
+  z-index: 2;
 }
 
-/* Poster */
 .gender-card__poster {
   width: 100%;
-  height: 70%;
+  height: 68%;
+  min-height: 12em;
+  max-height: 18em;
   background: #23243a;
   overflow: hidden;
   display: flex;
@@ -37,6 +38,7 @@
   justify-content: center;
   border-bottom: 0.13em solid #1b2cac33;
   position: relative;
+  border-radius: 0.8rem 0.8rem 0 0;
 }
 
 .gender-card__img {
@@ -46,71 +48,75 @@
   object-position: center;
   display: block;
   transition: transform 0.3s cubic-bezier(.4,1.6,.6,1);
-  border-radius: 0;
 }
 
 .gender-card:hover .gender-card__img {
-  transform: scale(1.04);
+  transform: scale(1.10);
 }
 
-/* Info */
 .gender-card__info {
-  padding: 1.1em 1.3em 1em 1.3em;
+  padding: 1em 1.2em 1em 1.2em;
   text-align: left;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   background: transparent;
+  min-height: 5.2em;
+  max-height: 7em;
 }
 
 .gender-card__title {
+  font-size: 1rem;
+  font-weight: 700;
   color: #fff;
-  font-size: 1em;
-  font-weight: 900;
-  margin: 0 0 0.3em 0;
-  letter-spacing: 0.1em;
-  line-height: 1.25;
-  text-shadow: 0 0.13em 0.8em #0007;
-  white-space: nowrap;
+  margin: 0.2em 0 0.2em 0;
+  white-space: normal;
+  overflow-wrap: break-word;
+  line-height: 1.15;
+  max-height: 2.5em;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: left;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .gender-card__meta {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 1.2em;
-  color: #b3b9d8;
-  font-size: 1.1em;
-  margin-top: 0.2em;
-}
-
-.gender-card__star {
-  color: #ffb400;
-  margin-right: 0.20em;
-  margin-left: 0;
-  font-size: 1.13em;
-  vertical-align: left;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1em;
+  margin-top: 0.1em;
 }
 
 .gender-card__rating {
+  font-size: 0.95em;
+  color: #ffe066;
   font-weight: 700;
-  color: #ffb400;
   display: flex;
   align-items: center;
+  gap: 0.3em;
+}
+
+.gender-card__star {
+  color: #ffe066;
+  font-size: 1em;
+  margin-right: 0.1em;
 }
 
 .gender-card__date {
-  font-size: 1em;
-  color: #b3b9d8;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  margin-left: 0.5rem;
+  font-size: 0.85em;
+  color: #b0b0b0;
+  font-weight: 400;
+  margin-top: 0.1em;
+  margin-left: 0;
+  display: block;
 }
 
-/* Responsive */
+/* Responsive solo para la card */
 @media (max-width: 1200px) {
   .gender-card {
     width: 95vw;
@@ -146,35 +152,4 @@
   .gender-card__title {
     font-size: 1.08em;
   }
-}
-
-/* Elimina el espacio horizontal entre las cards */
-.featured-list,
-.featured-list.improved-featured-list {
-  display: flex;
-  gap: 0 !important;
-  overflow-x: auto;
-  padding-bottom: 1em;
-  scrollbar-width: thin;
-  scrollbar-color: #1b2cac #23243a;
-}
-
-.featured-list::-webkit-scrollbar,
-.featured-list.improved-featured-list::-webkit-scrollbar {
-  height: 0.5em;
-  background: #23243a;
-  border-radius: 0.25em;
-}
-.featured-list::-webkit-scrollbar-thumb,
-.featured-list.improved-featured-list::-webkit-scrollbar-thumb {
-  background: #1b2cac;
-  border-radius: 0.25em;
-}
-
-.gender-movies-list {
-  display: flex;
-  flex-direction: row;
-  gap: 0 !important;
-  margin: 0;
-  padding: 0;
 }

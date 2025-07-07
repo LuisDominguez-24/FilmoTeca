@@ -3,7 +3,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 0.5rem;
   margin-bottom: 0.2rem;
   padding: 0.5rem 0;
   background: transparent;
@@ -11,7 +10,7 @@
 
 .bar-search-input-wrapper {
   position: relative;
-  width: 70%;
+  width: 40rem;
   display: flex;
   align-items: center;
   background: #23243a;
@@ -52,8 +51,7 @@
 
 @media (max-width: 1400px) {
   .bar-search-container {
-    margin-top: 1.3rem;
-    margin-bottom: 0.5rem;
+    margin-top: 1rem;
     padding: 0.2rem 0;
   }
   .bar-search-input-wrapper {
@@ -63,5 +61,17 @@
   .bar-search-input {
     font-size: 1rem;
     padding: 0.5rem 0.7rem 0.5rem 2.2rem;
+  }
+
+  @media (min-width: 3440px) {
+    .bar-search-container {
+      margin-top: 2rem;
+    }
+    .bar-search-input-wrapper {
+      width: 80%;
+    }
+    .bar-search-input {
+      padding: 0.5rem 0.6rem 0.5rem 2.2rem;
+    }
   }
 }

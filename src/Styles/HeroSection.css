@@ -24,12 +24,12 @@
   color: #fff;
   font-size: 1.3rem;
   font-weight: 400;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 .hero-section.improved-hero {
   min-height: 420px;
   max-width: 1100px;
-  margin: 2.5rem auto 2.5rem auto;
+  margin: 1rem auto 1rem auto;
   border-radius: 2.5rem;
   background-size: cover;
   background-position: center;
@@ -39,14 +39,26 @@
   justify-content: center;
   box-shadow: 0 8px 32px rgba(0,0,0,0.4);
   overflow: hidden;
+  animation: heroZoom 18s ease-in-out infinite alternate;
 }
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 0.9s;
+  opacity: 1;
+}
+
 .hero-overlay.improved-hero-overlay {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   padding: 0; /* Elimina el padding para que cubra todo */
-  background: linear-gradient(90deg, rgba(20,30,60,0.7) 0%, rgba(20,30,60,0.4) 100%);
+  background: linear-gradient(90deg, rgba(20,30,60,0.35) 0%, rgba(20,30,60,0.8) 100%);
   text-align: center;
   border-radius: 2.5rem;
   display: flex;
@@ -70,6 +82,13 @@
   margin-bottom: 0.7rem;
   letter-spacing: 1px;
   text-shadow: 0 2px 16px #000a;
+  animation: fadeUp 1s cubic-bezier(.4,1.6,.6,1) 0.2s both;
+  background: linear-gradient(90deg, #b6e13c 10%, #1b2cac 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
 }
 .hero-subtitle.improved-hero-subtitle {
   color: #e0e6f7;
@@ -77,11 +96,22 @@
   font-weight: 400;
   margin-bottom: 2.5rem;
   text-shadow: 0 1px 8px #0008;
+  animation: fadeUp 1.2s cubic-bezier(.4,1.6,.6,1) 0.5s both;
 }
 .hero-barsearch-wrapper {
   width: 100%;
   max-width: 700px;
   margin: 0 auto;
+  animation: fadeUp 1.2s cubic-bezier(.4,1.6,.6,1) 0.8s both;
+}
+
+.fade-in {
+  transition: opacity 0.9s;
+  opacity: 1;
+}
+.fade-out {
+  transition: opacity 0.9s;
+  opacity: 0;
 }
 @media (max-width: 900px) {
   .hero-section.improved-hero {
@@ -99,4 +129,29 @@
   .hero-subtitle.improved-hero-subtitle {
     font-size: 1rem;
   }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroZoom {
+  from {
+    background-size: 90%;
+  }
+  to {
+    background-size: 120%;
+  }
+}
+
+@keyframes shine {
+  0% { background-position: 0%;}
+  100% { background-position: 100%;}
 }
