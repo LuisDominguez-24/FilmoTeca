@@ -1,6 +1,6 @@
 import React from 'react';
 import "../../Styles/BarSearch.css";
-import IconSearch from '../../assets/icons/IconSearch.png';
+import IconSearch from '../../assets/icons/iconSearch.png';
 
 export const BarSearch = ({ value, onChange, placeholder = "Buscar..." }) => {
     return (
